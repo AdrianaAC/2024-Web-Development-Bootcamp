@@ -2,6 +2,8 @@
 //
 //11.1 - Bootstrap layout
 // https://appbrewery.github.io/bootstrap-layout/
+//11.3 - TinDog
+//https://appbrewery.github.io/tindog/
 //
 //Table links: col - lesson nbr, lesson name, link desc, link name, link
 //11.2 - Bootstrap components
