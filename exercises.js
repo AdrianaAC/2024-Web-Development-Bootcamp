@@ -8,3 +8,6 @@
 //Table links: col - lesson nbr, lesson name, link desc, link name, link
 //11.2 - Bootstrap components
 //https://getbootstrap.com/docs
+//12.1 - Color Theory
+//https://color.adobe.com/pt/create/color-wheel
+//https://colorhunt.co/
