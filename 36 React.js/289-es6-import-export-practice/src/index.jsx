@@ -1,6 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { add, multiply, subtract, divide } from "./math";
+import { add, multiply, subtract, divide } from "./calculator";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
