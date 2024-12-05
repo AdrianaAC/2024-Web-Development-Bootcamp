@@ -1,3 +1,5 @@
+import emojipedia from "./emojipedia";
+
 var numbers = [3, 56, 2, 48, 5];
 
 //Map -Create a new array by doing something with each item in an array.
@@ -42,3 +44,11 @@ console.log(
   "Index of first number between 40 and 50 with FindIndex: ",
   foundIndexNumber
 ); // 3
+
+//EmojePedia Challenge - Get meaning 100 charats max
+function get100meaning(emoji) {
+  return emoji.meaning.substring(0, 100);
+}
+
+let meaning100 = emojipedia.map(get100meaning);
+console.log("Meaning 100 characters max: ", meaning100);
