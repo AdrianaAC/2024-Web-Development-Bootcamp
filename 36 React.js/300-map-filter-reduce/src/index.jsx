@@ -51,4 +51,6 @@ function get100meaning(emoji) {
 }
 
 let meaning100 = emojipedia.map(get100meaning);
+let addedAllMeaning = meaning100.join(",");
 console.log("Meaning 100 characters max: ", meaning100);
+console.log("Added all meaning: ", addedAllMeaning);
