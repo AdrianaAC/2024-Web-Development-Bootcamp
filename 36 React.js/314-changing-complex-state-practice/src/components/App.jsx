@@ -19,9 +19,9 @@ function App() {
         };
       });
     } else if (name == "lName") {
-      setContact({...contact, lastName: value });
+      setContact({ ...contact, lastName: value });
     } else {
-      setContact({...contact, email: value });
+      setContact({ ...contact, email: value });
     }
   }
 
