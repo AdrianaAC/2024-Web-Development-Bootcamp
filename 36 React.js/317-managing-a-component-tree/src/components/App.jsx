@@ -38,7 +38,7 @@ function App() {
         </button>
       </div>
       <div>
-        <ul>
+        <ul> 
           {items.map((item, index) => (
             <ToDoItem key={index} id={index} text={item} onCheck={itemToggle} />
           ))}

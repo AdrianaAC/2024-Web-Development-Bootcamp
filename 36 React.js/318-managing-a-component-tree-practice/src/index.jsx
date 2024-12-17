@@ -1,8 +1,9 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import App from "./components/App";
+import {createRoot} from "react-dom/client"
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const root = createRoot(document.getElementById("root"))
+root.render(<App />);
 
 //CHALLENGE: I have extracted the Input Area, including the <input> and
 //<button> elements into a seperate Component called InputArea.
@@ -17,8 +18,3 @@ ReactDOM.render(<App />, document.getElementById("root"));
 //Hint 2: You will need to think about how to pass the input value back into
 //the addItem() function in App.jsx.
 
-// If you're running this locally in VS Code use the commands:
-// npm install
-// to install the node modules and
-// npm run dev
-// to launch your react project in your browser
