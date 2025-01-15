@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -8,6 +9,17 @@
       href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
       rel="stylesheet"
     />
+    <script src="./index.js"></script>
+    <script type="module">
+      import {dice1Img, dice2Img } from './index.js';
+      console.log(dice1Img());
+      console.log(dice2Img());
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector(".img1").src = dice1Img();
+        document.querySelector(".img2").src = dice2Img();
+      })
+    </script>
   </head>
   <body>
     <div class="container">
@@ -15,12 +27,13 @@
 
       <div class="dice">
         <p>Player 1</p>
-        <img class="img1" src="" />
+        <img class="img1" alt="p1" src=""/>
       </div>
 
       <div class="dice">
         <p>Player 2</p>
-        <img class="img2" src="" />
+        <img class="img2" alt="p2" src="" />
+      </div>
       </div>
     </div>
 
