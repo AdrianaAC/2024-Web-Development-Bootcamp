@@ -11,19 +11,25 @@
     />
     <script src="./index.js"></script>
     <script type="module">
-      import {dice1Img, dice2Img } from './index.js';
-      console.log(dice1Img());
-      console.log(dice2Img());
+     import { dice1Img, dice2Img, getWinner } from './index.js';
 
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector(".img1").src = dice1Img();
-        document.querySelector(".img2").src = dice2Img();
-      })
+document.addEventListener("DOMContentLoaded", () => {
+  const dice1 = dice1Img();
+  const dice2 = dice2Img();
+
+  document.querySelector(".img1").src = dice1.src;
+  document.querySelector(".img2").src = dice2.src;
+
+  console.log(`Dice 1: ${dice1.dice1}, Dice 2: ${dice2.dice2}`); // Log the dice values for debugging
+
+  const winner = getWinner(dice1.dice1, dice2.dice2);
+  document.querySelector(".statement").innerText = winner;
+});
     </script>
   </head>
   <body>
     <div class="container">
-      <h1>Refresh Me</h1>
+      <h1 class="statement">Refresh Me</h1>
 
       <div class="dice">
         <p>Player 1</p>
