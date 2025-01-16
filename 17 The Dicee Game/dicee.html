@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dicee</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster"
+      rel="stylesheet"
+    />
+    <script src="./index.js"></script>
+    <script type="module">
+     import { dice1Img, dice2Img, getWinner } from './index.js';
+
+document.addEventListener("DOMContentLoaded", () => {
+  const dice1 = dice1Img();
+  const dice2 = dice2Img();
+
+  document.querySelector(".img1").src = dice1.src;
+  document.querySelector(".img2").src = dice2.src;
+
+  console.log(`Dice 1: ${dice1.dice1}, Dice 2: ${dice2.dice2}`); // Log the dice values for debugging
+
+  const winner = getWinner(dice1.dice1, dice2.dice2);
+  document.querySelector(".statement").innerText = winner;
+});
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="statement">Refresh Me</h1>
+
+      <div class="dice">
+        <p>Player 1</p>
+        <img class="img1" alt="p1" src=""/>
+      </div>
+
+      <div class="dice">
+        <p>Player 2</p>
+        <img class="img2" alt="p2" src="" />
+      </div>
+      </div>
+    </div>
+
+    <footer>www 🎲 App Brewery 🎲 com</footer>
+  </body>
+</html>
