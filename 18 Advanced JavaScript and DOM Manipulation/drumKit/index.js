@@ -1,20 +1,23 @@
-//  document.querySelector(".drum").addEventListener("click", handleClick);
-
 for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
-  document.querySelectorAll(".drum")[i].addEventListener("click", handleClick);
+  document.querySelectorAll(".drum")[i].addEventListener("click", function () {
+    buttonInteraction(this.innerHTML);
+  });
 }
 
-let dAudio = new Audio("sounds/snare.mp3");
-let wAudio = new Audio("sounds/crash.mp3");
-let aAudio = new Audio("sounds/tom-3.mp3");
-let sAudio = new Audio("sounds/kick-bass.mp3");
-let jAudio = new Audio("sounds/tom-1.mp3");
-let kAudio = new Audio("sounds/tom-2.mp3");
-let lAudio = new Audio("sounds/tom-4.mp3");
+document.addEventListener("keydown", function (event) {
+  buttonInteraction(event.key);
+});
 
-function handleClick() {
-  let drumPart = this.innerHTML;
-  switch (drumPart) {
+function buttonInteraction(keyPressed) {
+  let dAudio = new Audio("sounds/snare.mp3");
+  let wAudio = new Audio("sounds/crash.mp3");
+  let aAudio = new Audio("sounds/tom-3.mp3");
+  let sAudio = new Audio("sounds/kick-bass.mp3");
+  let jAudio = new Audio("sounds/tom-1.mp3");
+  let kAudio = new Audio("sounds/tom-2.mp3");
+  let lAudio = new Audio("sounds/tom-4.mp3");
+
+  switch (keyPressed) {
     case "d":
       dAudio.play();
       break;
