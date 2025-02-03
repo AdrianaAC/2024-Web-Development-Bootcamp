@@ -1,11 +1,13 @@
 for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
     buttonInteraction(this.innerHTML);
+    buttonAnimation(this.innerHTML);
   });
 }
 
 document.addEventListener("keydown", function (event) {
   buttonInteraction(event.key);
+  buttonAnimation(event.key);
 });
 
 function buttonInteraction(keyPressed) {
@@ -42,4 +44,12 @@ function buttonInteraction(keyPressed) {
     default:
       console.log("Error");
   }
+}
+
+function buttonAnimation(key) {
+  activeBtn = document.querySelector("." + key);
+  activeBtn.classList.add("pressed");
+  setTimeout(() => {
+    activeBtn.classList.remove("pressed");
+  }, 1000);
 }
