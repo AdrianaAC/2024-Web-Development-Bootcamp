@@ -30,3 +30,9 @@ $(document).on("keydown", (event) => {
 input.keypress((event) => {
   h1.text(event.key);
 });
+
+p.before("<button>Before</button>");
+p.after("<button>After</button>");
+p.prepend("<button>Prepend</button>");
+p.append("<button>Append</button>");
+h2.remove();
