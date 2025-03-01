@@ -15,6 +15,9 @@ $(".btn").click(function () {
 
   //5. Playing sound for the button colour selected by the user
   playSound(userChosenColour);
+
+  //6. Animate the button pressed by the user
+  animatePress(userChosenColour);
 });
 
 function nextSequence() {
@@ -22,15 +25,20 @@ function nextSequence() {
   var randomChosenColour = buttonColours[randomNumber];
   gamePattern.push(randomChosenColour);
 
-  $("#" + randomChosenColour)
-    .fadeIn(100)
-    .fadeOut(100)
-    .fadeIn(100);
-
+animatePress(randomChosenColour)
   playSound(randomChosenColour);
 }
 
+//5. Refactoring to playSound function
 function playSound(name) {
   var audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
+}
+
+//6. Refactoring to animatePress function
+function animatePress(currentColour) {
+  $("#" + currentColour).addClass("pressed");
+  setTimeout(function () {
+    $("#" + currentColour).removeClass("pressed");
+  }, 100);
 }
