@@ -1,18 +1,36 @@
-const buttonColors = ["red", "blue", "green", "yellow"];
-let gamePattern = [];
-let userClickedPattern = [];
-let clickedButton = $(".btn").attr("id");
+var buttonColours = ["red", "blue", "green", "yellow"];
+
+var gamePattern = [];
+
+//3. At the top of the game.js file, create a new empty array with the name userClickedPattern.
+var userClickedPattern = [];
+
+//1. Use jQuery to detect when any of the buttons are clicked and trigger a handler function.
+$(".btn").click(function () {
+  //2. Inside the handler, create a new variable called userChosenColour to store the id of the button that got clicked.
+  var userChosenColour = $(this).attr("id");
+
+  //4. Add the contents of the variable userChosenColour created in step 2 to the end of this new userClickedPattern
+  userClickedPattern.push(userChosenColour);
+
+  //5. Playing sound for the button colour selected by the user
+  playSound(userChosenColour);
+});
 
 function nextSequence() {
-  let randomNumber = Math.floor(Math.random() * 4);
-  let randomChosenColor = buttonColors[randomNumber];
-  gamePattern.push(randomChosenColor);
+  var randomNumber = Math.floor(Math.random() * 4);
+  var randomChosenColour = buttonColours[randomNumber];
+  gamePattern.push(randomChosenColour);
+
+  $("#" + randomChosenColour)
+    .fadeIn(100)
+    .fadeOut(100)
+    .fadeIn(100);
+
+  playSound(randomChosenColour);
 }
 
-$(".btn").click(function () {
-  clickedButton = $(this).attr("id");
-  $(this).fadeOut(100).fadeIn(100);
-  userClickedPattern.push(clickedButton);
-  let audio = new Audio("./sounds/" + clickedButton + ".mp3");
+function playSound(name) {
+  var audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
-});
+}
