@@ -51,6 +51,7 @@ function checkAnswer(currentLevel) {
     }, 200);
 
     $("h1").text("Game Over, Press Any Key to Restart");
+    $(document).keypress(startOver());
   }
 }
 function nextSequence() {
@@ -63,6 +64,12 @@ function nextSequence() {
 
   animatePress(randomChosenColour);
   playSound(randomChosenColour);
+}
+
+function startOver() {
+  level = 0;
+  gamePattern = [];
+  started = false;
 }
 
 //5. Refactoring to playSound function
