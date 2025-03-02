@@ -1,7 +1,6 @@
 var buttonColours = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
-//3. At the top of the game.js file, create a new empty array with the name userClickedPattern.
 var userClickedPattern = [];
 
 let started = false;
@@ -15,20 +14,14 @@ $(document).keypress(function () {
   }
 });
 
-//1. Use jQuery to detect when any of the buttons are clicked and trigger a handler function.
-$(".btn").click(function () {
-  //2. Inside the handler, create a new variable called userChosenColour to store the id of the button that got clicked.
-  var userChosenColour = $(this).attr("id");
 
-  //4. Add the contents of the variable userChosenColour created in step 2 to the end of this new userClickedPattern
+$(".btn").click(function () {
+
+  var userChosenColour = $(this).attr("id");
   userClickedPattern.push(userChosenColour);
 
-  //5. Playing sound for the button colour selected by the user
   playSound(userChosenColour);
-
-  //6. Animate the button pressed by the user
   animatePress(userChosenColour);
-
   checkAnswer(userClickedPattern.length - 1);
 });
 
@@ -72,13 +65,13 @@ function startOver() {
   started = false;
 }
 
-//5. Refactoring to playSound function
+
 function playSound(name) {
   var audio = new Audio("sounds/" + name + ".mp3");
   audio.play();
 }
 
-//6. Refactoring to animatePress function
+
 function animatePress(currentColour) {
   $("#" + currentColour).addClass("pressed");
   setTimeout(function () {
