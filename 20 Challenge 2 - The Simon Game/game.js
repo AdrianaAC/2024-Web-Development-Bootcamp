@@ -1,12 +1,19 @@
 var buttonColours = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
+//3. At the top of the game.js file, create a new empty array with the name userClickedPattern.
+var userClickedPattern = [];
 
 let started = false;
 let level = 0;
 
-//3. At the top of the game.js file, create a new empty array with the name userClickedPattern.
-var userClickedPattern = [];
+$(document).keypress(function () {
+  if (!started) {
+    $("#level-title").text("Level 0");
+    nextSequence();
+    started = true;
+  }
+});
 
 //1. Use jQuery to detect when any of the buttons are clicked and trigger a handler function.
 $(".btn").click(function () {
@@ -21,17 +28,33 @@ $(".btn").click(function () {
 
   //6. Animate the button pressed by the user
   animatePress(userChosenColour);
+
+  checkAnswer(userClickedPattern.length - 1);
 });
 
-$(document).keypress(function () {
-  if (!started) {
-    $("#level-title").text("Level 0");
-    nextSequence();
-    started = true;
+function checkAnswer(currentLevel) {
+  if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+    console.log("success");
+
+    if (userClickedPattern.length === gamePattern.length) {
+      setTimeout(function () {
+        nextSequence();
+      }, 1000);
+    }
+  } else {
+    console.log("wrong");
+    playSound("wrong");
+
+    $("body").addClass("game-over");
+    setTimeout(function () {
+      $("body").removeClass("game-over");
+    }, 200);
+
+    $("h1").text("Game Over, Press Any Key to Restart");
   }
-});
-
+}
 function nextSequence() {
+  userClickedPattern = [];
   var randomNumber = Math.floor(Math.random() * 4);
   var randomChosenColour = buttonColours[randomNumber];
   level++;
