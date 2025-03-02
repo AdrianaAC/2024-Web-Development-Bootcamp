@@ -2,6 +2,9 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
 
+let started = false;
+let level = 0;
+
 //3. At the top of the game.js file, create a new empty array with the name userClickedPattern.
 var userClickedPattern = [];
 
@@ -20,12 +23,22 @@ $(".btn").click(function () {
   animatePress(userChosenColour);
 });
 
+$(document).keypress(function () {
+  if (!started) {
+    $("#level-title").text("Level 0");
+    nextSequence();
+    started = true;
+  }
+});
+
 function nextSequence() {
   var randomNumber = Math.floor(Math.random() * 4);
   var randomChosenColour = buttonColours[randomNumber];
+  level++;
+  $("h1").text("Level " + level);
   gamePattern.push(randomChosenColour);
 
-animatePress(randomChosenColour)
+  animatePress(randomChosenColour);
   playSound(randomChosenColour);
 }
 
