@@ -1,4 +1,4 @@
-# 2024 Web Development Bootcamp — Course Work
+# Web Development Bootcamp — Course Work
 
 This repository contains my **course exercises and mini-projects** from a Web Development Bootcamp, covering:
 
